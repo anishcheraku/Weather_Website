@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap-5.3.3-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="fontawesome-free-6.5.2-web/fontawesome-free-6.5.2-web/css/all.min.css">
+    <link rel="stylesheet" href="fontawesome-free-6.5.2-web/fontawesome-free-6.5.2-web/webfonts">
+    <link rel="stylesheet" href="contact.css">
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
+
+    <!-- fonts alert -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+
+
+        <title>Contact Form</title>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+        <script type="text/javascript">
+            (function() {
+                // https://dashboard.emailjs.com/admin/account
+                emailjs.init({
+                  publicKey: "uCjwJz5cI3bCSmEba",
+                });
+            })();
+        </script>
+        <script type="text/javascript">
+            window.onload = function() {
+                document.getElementById('contact-form').addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    // these IDs from the previous steps
+                    emailjs.sendForm('contact_service', 'contact_form', this)
+                        .then(() => {
+                            console.log('SUCCESS!');
+                        }, (error) => {
+                            console.log('FAILED...', error);
+                        });
+                });
+            }
+        </script>
+</head>
+
+<body id="body">
+
+    <div class="container mt-5 mb-5 ">
+
+        <section class="nav d-flex justify-content-between ">
+            <div class="logo d-flex flex-row">
+                <img src="imgs/logo@2x.png" alt="weather logo">
+                <div class="caption ms-3">
+                    <p class="weather text-capitalize mb-1 ">Weather</p>
+                    <p class="tagline mt-0">By: Anish Cheraku</p>
+                </div>
+            </div>
+
+            <div class="navbar">
+
+                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <a href="index.html" class="anchor"> <button class=" homeNav nav-link active px-4 py-1 me-2"
+                                id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button"
+                                role="tab" aria-controls="pills-home" aria-selected="true">Home</button></a>
+                    </li>
+
+                    <li class="nav-item nav-items-rest" role="presentation">
+                        <a href="contact.html" class="anchor"> <button class="nav-link px-4 py-1 me-2" id="pills-contact-tab"
+                                data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab"
+                                aria-controls="pills-contact" aria-selected="false">Contact</button></a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+
+    <div class="parent">
+
+
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-lg-5">
+                    <div class="card mx-5 px-2 ">
+                        <div class="container-fluid2">
+                            <div class="container mt-4">
+                                <div class=" pt-4 position-relative ">
+                                    <label for="searchTerm"></label>
+                    
+                                </div>
+                            </div>
+                    
+                        </div>
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d423286.8828515211!2d-118.74138730590087!3d34.02003922714877!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c75ddc27da13%3A0xe22fdf6f254608f4!2sLos%20Angeles%2C%20CA%2C%20USA!5e0!3m2!1sen!2seg!4v1719452562393!5m2!1sen!2seg"
+                            class="mb-4" height="0" width="500" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <div class="desc d-flex flex-column p-2">
+                            <div class="caption d-flex ">
+                                <i class="fa-solid fa-location-dot pe-3"></i>
+                                <div class="d- flex-column">
+                                    <p class="mb-0 pb-0">Houston, Texas</p>
+                                </div>
+                            </div>
+
+                            <div class="d-flex">
+
+                                <div class="d-flex me-3">
+                                    <i class="fa-solid fa-phone pe-3"></i>
+                                    <p>+1 281 690 6736</p>
+
+                                </div>
+
+                                <div class="d-flex">
+                                    <i class="fa-solid fa-envelope pe-3"></i>
+                                    <p>anishcheraku3@gmail.com</p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="secCard mx-5">
+                        <p class="text-capitalize contactsUs">Contact me</p>
+
+                        <form id="contact-form">
+                            <div class="row">
+                                <input type="hidden" name="contact_number" value="697483">
+                                <div class="col-lg-6">
+                                    <input type="text" placeholder="Your name..." class="form-control p-2 pe-1 mb-2 "
+                                        id="name" name="user_name">
+
+                                </div>
+                                <div class="col-lg-6">
+                                    <input type="email" placeholder="Email adress..." class="form-control p-2 pe-1 mb-2 "
+                                        id="email" name="user_email">
+                                </div>
+                                <div class="col-lg-12">
+                                    <textarea name="message" id="Message" placeholder="Message..." rows="5"
+                                        class="w-100 px-2 pt-3 pb-5 mb-2"></textarea>
+                                </div>
+                                <p class="Success text-center d-none">Success</p>
+                                <button type="submit" class="w-25 ms-auto py-2 rounded-5 btnSubmit"
+                                    id="submit" value="Send" >Submit </button>
+                                <script>
+                                        document.getElementById("submit").addEventListener("click", function(event) {
+                                        event.preventDefault(); // Prevents any default submit behavior
+                                        alert("Error: Monthly Message Limit Reached.");
+                                    });
+                                </script>
+                            </div>
+
+                        </form>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        
+    </div>
+
+
+
+
+    
+
+
+
+
+
+
+    <script src="bootstrap-5.3.3-dist/js/bootstrap.min.js"></script>
+    <script src="contacts.js"></script>
+</body>
+
+</html>
